@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Building the Foundation for Year-Over-Year Revenue Insights | Thomas Hayden</title>
+  <meta
+    name="description"
+    content="A portfolio post by Thomas Hayden about building year-over-year revenue insights for a hotel revenue management system."
+  />
+
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../style.css?v=3" />
+</head>
+
+<body>
+
+  <header class="site-header blog-header">
+    <nav class="nav">
+      <a href="../index.html" class="logo">Thomas Hayden</a>
+
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#posts">Posts</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero blog-hero">
+      <p class="eyebrow">Portfolio Post</p>
+      <h1>Building the Foundation for Year-Over-Year Revenue Insights</h1>
+      <p class="hero-text">
+        A breakdown of how I improved my Revenue Management System by adding
+        year-over-year comparison logic, variance calculations, validation, and
+        missing-data handling.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://github.com/L0ckEndL0L/Revenue-Management-Model" class="button primary" target="_blank">View Repository</a>
+        <a href="../index.html#posts" class="button secondary">Back to Posts</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <article class="section blog-post">
+
+      <div class="post-meta">
+        <p><strong>Author:</strong> Thomas Hayden</p>
+        <p><strong>Date:</strong> May 30, 2026</p>
+        <p><strong>Project:</strong> Flexible Revenue Management System for Hotel Pricing Decision Support</p>
+      </div>
+
+      <h2>Monthly Goal</h2>
+      <p>
+        The goal for this month was to move the Revenue Management System from basic data handling
+        into a more useful decision-support tool. The main issue I focused on was that hotel performance
+        data is not very helpful if it only shows current numbers. Revenue managers need to understand
+        how current performance compares against prior-year results so they can recognize trends,
+        identify risk, and make better pricing decisions.
+      </p>
+
+      <p>
+        My strategy was to strengthen the project’s data pipeline, improve validation, and build
+        year-over-year comparison logic that could calculate meaningful hotel performance metrics
+        even when the data was incomplete or inconsistent.
+      </p>
+
+      <h2>Features Developed This Month</h2>
+      <p>
+        This month, I focused on building and improving the year-over-year comparison features in the
+        Revenue Management System. I updated the project so current hotel performance rows can be
+        matched against prior-year data using stay dates. The system first attempts to match the exact
+        prior-year date, and when that is not available, it can fall back to a calendar-based month-and-day
+        comparison. This makes the tool more flexible when working with real hotel data that may not
+        always export perfectly.
+      </p>
+
+      <p>
+        I also added variance calculations for core hotel metrics, including occupancy, ADR, RevPAR,
+        rooms sold, and room revenue. These calculations allow the system to show the difference between
+        current performance and prior-year performance using both absolute variance and percentage variance.
+      </p>
+
+      <p>
+        Another major improvement was handling missing prior-year data. Instead of breaking the calculations
+        or creating misleading numbers, the system now flags rows where prior-year data is incomplete or
+        unavailable. This makes the reporting more trustworthy because it clearly separates valid comparisons
+        from areas where more historical data is needed.
+      </p>
+
+      <p>
+        The main tools used this month included Python, pandas, pytest, and the existing project files such as
+        <code>yoy.py</code>, <code>main.py</code>, <code>app.py</code>, <code>validate.py</code>,
+        <code>test_yoy.py</code>, and <code>test_validate.py</code>.
+      </p>
+
+      <h2>Year-Over-Year Comparison Flow</h2>
+
+      <div class="flow-card">
+        <p>Current Hotel Data</p>
+        <span>↓</span>
+        <p>Validate Required Fields</p>
+        <span>↓</span>
+        <p>Match to Prior-Year Stay Date</p>
+        <span>↓</span>
+        <p>Calculate KPI Variances</p>
+        <span>↓</span>
+        <p>Flag Missing or Incomplete Prior-Year Data</p>
+        <span>↓</span>
+        <p>Export Results for Dashboard Use</p>
+      </div>
+
+      <h2>Metrics Added to the Comparison</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Current Value</th>
+              <th>Prior-Year Value</th>
+              <th>Variance</th>
+              <th>Percent Variance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Occupancy</td>
+              <td>Calculated</td>
+              <td>Calculated</td>
+              <td>Added</td>
+              <td>Added</td>
+            </tr>
+            <tr>
+              <td>ADR</td>
+              <td>Calculated</td>
+              <td>Calculated</td>
+              <td>Added</td>
+              <td>Added</td>
+            </tr>
+            <tr>
+              <td>RevPAR</td>
+              <td>Calculated</td>
+              <td>Calculated</td>
+              <td>Added</td>
+              <td>Added</td>
+            </tr>
+            <tr>
+              <td>Rooms Sold</td>
+              <td>Calculated</td>
+              <td>Calculated</td>
+              <td>Added</td>
+              <td>Added</td>
+            </tr>
+            <tr>
+              <td>Room Revenue</td>
+              <td>Calculated</td>
+              <td>Calculated</td>
+              <td>Added</td>
+              <td>Added</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Data Status Handling</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OK</td>
+              <td>Prior-year data was available and comparison was calculated.</td>
+            </tr>
+            <tr>
+              <td>PRIOR_YEAR_INCOMPLETE</td>
+              <td>Some prior-year data exists, but not enough for a full comparison.</td>
+            </tr>
+            <tr>
+              <td>PRIOR_YEAR_UNAVAILABLE</td>
+              <td>No usable prior-year record was found.</td>
+            </tr>
+            <tr>
+              <td>Null Percent Variance</td>
+              <td>Prior-year value was missing or zero, so percent variance was not calculated.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What Went Right</h2>
+      <p>
+        The biggest success this month was getting the year-over-year comparison logic working in a way
+        that supports real hotel decision-making. The project is now more than a basic calculator because
+        it can compare current performance against historical performance and identify whether a property
+        is pacing ahead or behind.
+      </p>
+
+      <p>
+        Another positive outcome was improving the validation process. Adding required-field checks helped
+        make the pipeline more reliable and reduced the chance of bad data creating incorrect results.
+        I also created hand-check tests to verify that the formulas were working correctly.
+      </p>
+
+      <h2>What Went Wrong</h2>
+      <p>
+        The biggest challenge was working around data limitations. Some of the available property data did
+        not fully support the time ranges needed for stronger year-over-year comparisons, so I had to request
+        updated data from other properties.
+      </p>
+
+      <p>
+        Another challenge was making sure the logic did not become too rigid. Hotel data can be messy, and
+        a comparison system that only works with perfect data would not be useful in a real-world environment.
+      </p>
+
+      <h2>How I Can Improve Moving Forward</h2>
+      <p>
+        Moving forward, I can improve by continuing to test with larger and more varied datasets. The more
+        property data I can run through the system, the better I can validate the results and identify edge cases.
+      </p>
+
+      <p>
+        I also want to continue improving how the results are displayed in the app so the user can quickly
+        understand the comparison without needing to inspect raw output files.
+      </p>
+
+      <h2>What I Learned This Month</h2>
+      <p>
+        This month helped connect several previous course topics directly to my capstone project. Python
+        programming, data cleaning, validation, testing, and software design all came together in one system.
+      </p>
+
+      <p>
+        I also learned that building a practical software tool is not just about making formulas work. The
+        system also has to handle real-world problems, such as missing data, inconsistent exports, and unclear
+        historical records.
+      </p>
+
+      <h2>Readiness for the Next Phase</h2>
+      <p>
+        I am ready to move into the next phase of development. The core year-over-year logic, variance
+        calculations, validation improvements, and hand-check testing are now in place. The next step is to
+        continue refining the system with updated property data, improve the dashboard outputs, and make sure
+        the final project clearly demonstrates how the Revenue Management System supports better hotel pricing
+        decisions.
+      </p>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 Thomas Hayden</p>
+  </footer>
+
+</body>
+</html>
