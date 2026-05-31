@@ -204,16 +204,10 @@ a {
   line-height: 1.02;
   margin-bottom: 1.5rem;
   letter-spacing: -0.06em;
-  background: linear-gradient(
-    120deg,
-    #ffffff,
-    var(--white-hot) 26%,
-    var(--yellow) 44%,
-    var(--violet) 64%,
-    var(--electric-blue) 88%
-  );
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--text);
+  text-shadow:
+    0 0 18px rgba(123, 77, 255, 0.28),
+    0 0 26px rgba(255, 234, 77, 0.12);
 }
 
 .hero-text {
@@ -224,7 +218,6 @@ a {
 }
 
 .hero-buttons,
-.contact-links,
 .project-links {
   display: flex;
   flex-wrap: wrap;
@@ -417,7 +410,6 @@ a {
 }
 
 .project-links a,
-.contact-links a,
 .post-card a {
   color: var(--text);
   font-weight: 800;
@@ -426,7 +418,6 @@ a {
 }
 
 .project-links a::after,
-.contact-links a::after,
 .post-card a::after {
   content: "";
   position: absolute;
@@ -441,7 +432,6 @@ a {
 }
 
 .project-links a:hover,
-.contact-links a:hover,
 .post-card a:hover {
   color: var(--yellow);
 }
@@ -485,6 +475,43 @@ a {
 
 .contact-card p {
   margin-bottom: 1.5rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 800;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: translateY(-2px);
+  color: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 18px rgba(255, 234, 77, 0.2),
+    0 0 24px rgba(123, 77, 255, 0.18);
+}
+
+.contact-links a::after {
+  display: none;
 }
 
 footer {
@@ -645,5 +672,9 @@ td {
 
   .section {
     padding: 4rem 1rem;
+  }
+
+  .contact-links a {
+    min-width: 100%;
   }
 }
