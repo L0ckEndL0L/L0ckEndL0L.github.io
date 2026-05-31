@@ -5,21 +5,27 @@
 }
 
 :root {
-  --bg: #07050d;
+  --bg: #050408;
   --bg-2: #0d0718;
-  --panel: rgba(22, 15, 36, 0.88);
+  --panel: rgba(22, 15, 36, 0.9);
   --panel-strong: rgba(34, 22, 55, 0.95);
-  --border: rgba(196, 122, 255, 0.25);
+
+  --border: rgba(255, 214, 64, 0.22);
   --border-strong: rgba(255, 46, 99, 0.55);
-  --text: #f7f1ff;
-  --muted: #c8b8d8;
+
+  --text: #f8f3ff;
+  --muted: #cbbdd8;
   --muted-2: #a99ab9;
-  --purple: #b56cff;
-  --violet: #7c3cff;
+
+  --purple: #9d4dff;
+  --violet: #6f2cff;
   --pink: #ff2e63;
   --red: #ff1744;
-  --electric: #9d4dff;
-  --shadow: rgba(181, 108, 255, 0.28);
+  --yellow: #ffd640;
+  --gold: #ffb000;
+
+  --electric: #ffd640;
+  --shadow: rgba(255, 214, 64, 0.25);
 }
 
 html {
