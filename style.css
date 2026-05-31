@@ -35,8 +35,9 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at 15% 10%, rgba(181, 108, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 85% 20%, rgba(255, 46, 99, 0.13), transparent 28%),
+    radial-gradient(circle at 12% 10%, rgba(157, 77, 255, 0.24), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(255, 46, 99, 0.18), transparent 30%),
+    radial-gradient(circle at 70% 85%, rgba(255, 214, 64, 0.1), transparent 30%),
     linear-gradient(135deg, var(--bg), var(--bg-2) 45%, #12091f);
   color: var(--text);
   line-height: 1.6;
@@ -55,6 +56,16 @@ body::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 75%);
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 0%, transparent 42%, rgba(255, 214, 64, 0.06) 43%, transparent 44%),
+    linear-gradient(65deg, transparent 0%, transparent 64%, rgba(255, 46, 99, 0.06) 65%, transparent 66%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -70,29 +81,31 @@ a {
 .site-header::before {
   content: "";
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 560px;
+  height: 560px;
   right: -180px;
   top: 80px;
   background:
-    radial-gradient(circle, rgba(181, 108, 255, 0.25), transparent 55%),
-    radial-gradient(circle, rgba(255, 46, 99, 0.18), transparent 70%);
+    radial-gradient(circle, rgba(157, 77, 255, 0.28), transparent 55%),
+    radial-gradient(circle, rgba(255, 46, 99, 0.2), transparent 70%),
+    radial-gradient(circle, rgba(255, 214, 64, 0.14), transparent 75%);
   filter: blur(8px);
 }
 
 .site-header::after {
   content: "";
   position: absolute;
-  width: 2px;
-  height: 360px;
+  width: 3px;
+  height: 390px;
   right: 18%;
-  top: 18%;
-  background: linear-gradient(to bottom, transparent, var(--pink), var(--purple), transparent);
+  top: 17%;
+  background: linear-gradient(to bottom, transparent, var(--yellow), var(--pink), var(--purple), transparent);
   box-shadow:
-    0 0 18px var(--pink),
-    0 0 42px var(--purple);
+    0 0 14px var(--yellow),
+    0 0 26px var(--pink),
+    0 0 48px var(--purple);
   transform: rotate(24deg);
-  opacity: 0.65;
+  opacity: 0.72;
 }
 
 .nav,
@@ -116,7 +129,9 @@ a {
   letter-spacing: 0.04em;
   font-size: 1.1rem;
   color: var(--text);
-  text-shadow: 0 0 18px rgba(181, 108, 255, 0.4);
+  text-shadow:
+    0 0 14px rgba(157, 77, 255, 0.45),
+    0 0 24px rgba(255, 214, 64, 0.18);
 }
 
 .nav-links {
@@ -138,7 +153,8 @@ a {
   bottom: -0.35rem;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--pink), var(--purple));
+  background: linear-gradient(90deg, var(--yellow), var(--pink), var(--purple));
+  box-shadow: 0 0 10px rgba(255, 214, 64, 0.45);
   transition: width 0.2s ease;
 }
 
@@ -157,12 +173,13 @@ a {
 }
 
 .eyebrow {
-  color: var(--pink);
+  color: var(--yellow);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
   margin-bottom: 0.85rem;
+  text-shadow: 0 0 14px rgba(255, 214, 64, 0.45);
 }
 
 .hero h1 {
@@ -171,7 +188,7 @@ a {
   line-height: 1.02;
   margin-bottom: 1.5rem;
   letter-spacing: -0.06em;
-  background: linear-gradient(120deg, #ffffff, #e7d2ff 45%, #ff7b9c 78%, #b56cff);
+  background: linear-gradient(120deg, #ffffff, #e7d2ff 36%, var(--yellow) 58%, var(--pink) 74%, var(--purple));
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -207,13 +224,15 @@ a {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, var(--pink), var(--purple));
-  color: white;
-  box-shadow: 0 0 28px rgba(255, 46, 99, 0.35);
+  background: linear-gradient(135deg, var(--red), var(--purple), var(--yellow));
+  color: #050408;
+  box-shadow: 0 0 28px rgba(255, 214, 64, 0.35);
 }
 
 .button.primary:hover {
-  box-shadow: 0 0 38px rgba(181, 108, 255, 0.55);
+  box-shadow:
+    0 0 24px rgba(255, 46, 99, 0.45),
+    0 0 42px rgba(255, 214, 64, 0.35);
 }
 
 .button.secondary {
@@ -223,8 +242,10 @@ a {
 }
 
 .button.secondary:hover {
-  border-color: var(--purple);
-  box-shadow: 0 0 24px rgba(181, 108, 255, 0.25);
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 20px rgba(157, 77, 255, 0.28),
+    0 0 26px rgba(255, 214, 64, 0.16);
 }
 
 .section {
@@ -262,7 +283,7 @@ a {
 .about-card,
 .contact-card {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 28%),
     var(--panel);
   border: 1px solid var(--border);
   border-radius: 1.2rem;
@@ -283,23 +304,50 @@ a {
     box-shadow 0.2s ease;
 }
 
+.project-card::before,
+.post-card::before,
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 214, 64, 0.08), transparent 34%, rgba(157, 77, 255, 0.08));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 .project-card:hover,
 .post-card:hover,
 .skill-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 46, 99, 0.55);
+  border-color: rgba(255, 214, 64, 0.55);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.32),
-    0 0 32px rgba(181, 108, 255, 0.18);
+    0 0 32px rgba(157, 77, 255, 0.2),
+    0 0 20px rgba(255, 214, 64, 0.12);
+}
+
+.project-card:hover::before,
+.post-card:hover::before,
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.project-card > *,
+.post-card > *,
+.skill-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .card-topline {
   height: 3px;
   width: 70px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--pink), var(--purple));
+  background: linear-gradient(90deg, var(--yellow), var(--pink), var(--purple));
   margin-bottom: 1.2rem;
-  box-shadow: 0 0 16px rgba(255, 46, 99, 0.65);
+  box-shadow:
+    0 0 12px rgba(255, 214, 64, 0.75),
+    0 0 18px rgba(255, 46, 99, 0.55);
 }
 
 .project-card h3,
@@ -355,17 +403,24 @@ a {
   bottom: -0.15rem;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--pink), var(--purple));
-  box-shadow: 0 0 10px rgba(181, 108, 255, 0.5);
+  background: linear-gradient(90deg, var(--yellow), var(--pink), var(--purple));
+  box-shadow: 0 0 10px rgba(255, 214, 64, 0.55);
+}
+
+.project-links a:hover,
+.contact-links a:hover,
+.post-card a:hover {
+  color: var(--yellow);
 }
 
 .post-date {
-  color: var(--pink) !important;
+  color: var(--yellow) !important;
   font-weight: 800;
   font-size: 0.85rem;
   margin-bottom: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 214, 64, 0.35);
 }
 
 .post-card a {
@@ -401,13 +456,13 @@ footer {
   text-align: center;
   padding: 2rem;
   color: var(--muted-2);
-  border-top: 1px solid rgba(196, 122, 255, 0.12);
+  border-top: 1px solid rgba(255, 214, 64, 0.14);
   background: rgba(7, 5, 13, 0.65);
 }
 
 ::selection {
-  background: var(--pink);
-  color: white;
+  background: var(--yellow);
+  color: #050408;
 }
 
 @media (max-width: 950px) {
