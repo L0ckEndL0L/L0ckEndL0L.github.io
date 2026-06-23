@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Preparing RateAnchor for Tailored Hotel Revenue Recommendations | Thomas Hayden</title>
+  <meta
+    name="description"
+    content="A portfolio post by Thomas Hayden about improving the Revenue Management System with tailored hotel pricing recommendations, demo data, Streamlit deployment preparation, and dashboard refinements."
+  />
+
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../style.css?v=5" />
+</head>
+
+<body>
+
+  <header class="site-header blog-header">
+    <nav class="nav">
+      <a href="../index.html" class="logo">Thomas Hayden</a>
+
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#posts">Posts</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero blog-hero">
+      <p class="eyebrow">Portfolio Post</p>
+      <h1>Preparing RateAnchor for Tailored Hotel Revenue Recommendations</h1>
+      <p class="hero-text">
+        A breakdown of how I moved my Revenue Management System closer to a deployable hotel pricing
+        decision-support app by adding tailored recommendation logic, improving demo data, and preparing
+        the Streamlit interface for review.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://github.com/L0ckEndL0L/Revenue-Management-Model" class="button primary" target="_blank">View Repository</a>
+        <a href="../index.html#posts" class="button secondary">Back to Posts</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <article class="section blog-post">
+
+      <div class="post-meta">
+        <p><strong>Author:</strong> Thomas Hayden</p>
+        <p><strong>Date:</strong> June 23, 2026</p>
+        <p><strong>Project:</strong> RateAnchor Revenue Management System</p>
+      </div>
+
+      <h2>Monthly Goal</h2>
+      <p>
+        The goal for this month was to make the Revenue Management System more useful as a real hotel
+        pricing decision-support tool. Earlier versions focused on baseline forecasting, KPI calculations,
+        validation, and year-over-year comparisons. This month, I focused on making the recommendations
+        more flexible, more explainable, and easier to demonstrate through the web app.
+      </p>
+
+      <p>
+        I also wanted the project to be ready for capstone review and deployment. That meant improving the
+        Streamlit interface, making sure the demo data actually worked, and preparing the project so someone
+        reviewing it could load sample data, run a simulation, and understand the pricing logic without needing
+        to manually configure every file.
+      </p>
+
+      <h2>Features Developed This Month</h2>
+      <p>
+        The largest feature added this month was the tailored recommendation layer. I built new logic that sits
+        on top of the baseline pricing output and adjusts recommendations based on hotel-specific settings.
+        These settings include property type, segment focus, occupancy sensitivity, ADR sensitivity, RevPAR
+        priority, rooms-sold priority, revenue priority, demand factors, seasonality, event impact, and rate
+        guardrails.
+      </p>
+
+      <p>
+        This gave the project a stronger connection to real revenue management decisions. Instead of only
+        producing one generic recommendation, the system can now support different pricing strategies depending
+        on the property, market conditions, and business goals.
+      </p>
+
+      <p>
+        I also improved the project structure by adding and updating files such as <code>tailored.py</code>,
+        <code>app.py</code>, <code>main.py</code>, <code>dataset_manager.py</code>, <code>test_tailored.py</code>,
+        and <code>test_tailored_integration.py</code>. These updates helped connect the tailored model to the
+        existing pipeline while preserving the baseline outputs, KPI calculations, validation checks, YoY results,
+        and rate recommendation workflow.
+      </p>
+
+      <h2>Tailored Recommendation Flow</h2>
+
+      <div class="flow-card">
+        <p>Load Hotel Dataset</p>
+        <span>↓</span>
+        <p>Run Baseline Forecast and KPI Pipeline</p>
+        <span>↓</span>
+        <p>Apply Property and Strategy Settings</p>
+        <span>↓</span>
+        <p>Adjust Recommendation Using Demand, Seasonality, and Event Factors</p>
+        <span>↓</span>
+        <p>Check Rate Guardrails</p>
+        <span>↓</span>
+        <p>Display Tailored Recommendation Summary in the App</p>
+      </div>
+
+      <h2>Key Improvements</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Improvement</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tailored Model</td>
+              <td>Added configurable pricing settings</td>
+              <td>Support different hotel strategies and market conditions</td>
+            </tr>
+            <tr>
+              <td>Median Rate Logic</td>
+              <td>Improved the rate anchor concept</td>
+              <td>Use the dataset to inform recommendation adjustments</td>
+            </tr>
+            <tr>
+              <td>Streamlit App</td>
+              <td>Added tailored-state helpers and persistence</td>
+              <td>Keep user selections available during app use</td>
+            </tr>
+            <tr>
+              <td>Demo Data</td>
+              <td>Prepared sample files for one-click testing</td>
+              <td>Make the project easier to review and demonstrate</td>
+            </tr>
+            <tr>
+              <td>Testing</td>
+              <td>Added tailored model unit and integration tests</td>
+              <td>Verify the new layer works with the existing pipeline</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Demo and Deployment Work</h2>
+      <p>
+        Another major focus was making the project easier to demonstrate. I prepared the Streamlit app for a
+        board-style review workflow with a clearer dataset panel, demo dataset loading, and a one-click pricing
+        simulation path. This included work around sample files such as <code>sample_data.csv</code>,
+        <code>future_on_books_sample.csv</code>, <code>events_sample.csv</code>, and
+        <code>budget_daily_sample.csv</code>.
+      </p>
+
+      <p>
+        I also worked on deployment preparation for Streamlit Community Cloud. That required checking the
+        repository setup, cleaning up project files, confirming configuration files, and making sure the app could
+        be launched from a GitHub-hosted project. During this stage, I also selected the project brand name
+        <strong>RateAnchor</strong>, which reflects the idea of anchoring hotel pricing recommendations to real
+        performance data.
+      </p>
+
+      <h2>What Went Right</h2>
+      <p>
+        The biggest success this month was moving the project from a technical prototype toward a usable web
+        application. The baseline model, KPI outputs, year-over-year comparison features, and tailored recommendation
+        layer now work together as parts of one larger decision-support system.
+      </p>
+
+      <p>
+        Another positive outcome was improving the reviewer experience. A capstone project needs to be more than
+        technically correct; it also needs to be understandable. The demo workflow helps show what the system does
+        without requiring someone to inspect every Python file manually.
+      </p>
+
+      <h2>What Went Wrong</h2>
+      <p>
+        One challenge was making sure the demo data actually supported the full app workflow. Demo data has to be
+        realistic enough to show the system working, but simple enough that it does not create confusing edge cases
+        during a presentation.
+      </p>
+
+      <p>
+        Another challenge was the median rate logic. I noticed that using a single median rate for the full forecast
+        was too broad because hotel pricing decisions are made day by day. This gave me a clear next improvement:
+        make the median rate anchor more date-specific so each recommendation can better reflect the conditions for
+        that stay date.
+      </p>
+
+      <h2>How I Can Improve Moving Forward</h2>
+      <p>
+        Moving forward, I want to continue refining the daily pricing logic so the tailored recommendation layer is
+        more precise. The next improvement is to make the median rate calculation function on a day-by-day basis
+        instead of applying one value across the entire forecast window.
+      </p>
+
+      <p>
+        I also want to keep improving the dashboard text, clean up the interface, and make sure the final version of
+        the app clearly explains why a recommendation was made. This is important because a revenue tool should not
+        only output a number; it should also help the user understand the business reason behind the recommendation.
+      </p>
+
+      <h2>What I Learned This Month</h2>
+      <p>
+        This month helped me better understand the difference between building a working calculation and building a
+        usable software product. A model can produce numbers, but a useful decision-support system also needs clear
+        inputs, reliable validation, understandable outputs, realistic sample data, and a smooth user interface.
+      </p>
+
+      <p>
+        I also learned how important deployment preparation is. Getting the code to run locally is only one part of
+        the project. Preparing a Streamlit app for review requires thinking about repository structure, configuration,
+        sample data, user flow, and how the project will appear to someone seeing it for the first time.
+      </p>
+
+      <h2>Readiness for the Next Phase</h2>
+      <p>
+        The project is now closer to a complete capstone-ready product. RateAnchor has a stronger recommendation
+        engine, a clearer app workflow, working demo data goals, and a deployment path through GitHub and Streamlit.
+        The next phase is to polish the interface, finalize the daily recommendation logic, and prepare the project
+        for presentation and defense.
+      </p>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 Thomas Hayden</p>
+  </footer>
+
+</body>
+</html>
